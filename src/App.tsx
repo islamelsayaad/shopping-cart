@@ -8,7 +8,7 @@ import Processed from "./pages/Processed";
 function App() {
   return (
     <CartProvider>
-      <div className="py-4">
+      <div className="px-5 py-4 sm:px-12">
         <Navbar />
         <Routes>
           <Route path="/" element={<Products />}></Route>
