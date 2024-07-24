@@ -1,0 +1,20 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&family=Poppins:wght@400;500;600&display=swap");
+
+body {
+  padding: 0 3rem;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.c_products_layout {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.c_processed_message {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
