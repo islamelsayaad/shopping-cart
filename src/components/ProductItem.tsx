@@ -19,13 +19,13 @@ function ProductItem({ ...item }: { id: number; name: string; price: number }) {
         />
       </div>
       <div className="flex flex-col h-full px-6 py-4 justify-evenly">
-        <h5 className="text-lg font-light capitalize line-clamp-2">
+        <h5 className="font-light capitalize text-md sm:text-lg line-clamp-2">
           {item.name}
         </h5>
         <h5 className="text-xl">{currencyFormatter(item.price)}</h5>
         <button
           onClick={handleAddItem}
-          className="w-full p-[10px] text-lg font-normal transition-all bg-transparent border border-black rounded-full hover:bg-black hover:text-white"
+          className="w-full p-[10px] text-md sm:text-lg font-normal transition-all bg-transparent border border-black rounded-full hover:bg-black hover:text-white"
         >
           Add to cart
         </button>
