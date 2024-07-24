@@ -10,7 +10,7 @@ function ProductItem({ ...item }: { id: number; name: string; price: number }) {
   };
 
   return (
-    <div className="grid items-center grid-rows-2 gap-4 border-2 border-gray-100 rounded-xl max-h-[580px] overflow-hidden max-w-[320px]">
+    <div className="grid items-center grid-rows-2 gap-4 border-2 border-gray-100 rounded-xl h-fit max-h-[560px] overflow-hidden w-full max-w-[320px]">
       <div className="flex items-center justify-center px-4 py-8">
         <img
           src={setImgURL(item.id)}
