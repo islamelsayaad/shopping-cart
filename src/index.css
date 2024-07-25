@@ -1,19 +1,27 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 body {
   margin: 0 auto;
   font-family: "Poppins", sans-serif;
 }
 
-.c_products_layout {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
+/* Responsive Grid */
 
-.c_processed_message {
-  font-family: "Space Mono", monospace;
-  font-weight: 700;
-  font-style: normal;
+@media (min-width: 780px) {
+  .c_products_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1080px) {
+  .c_products_container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1400px) {
+  .c_products_container {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }

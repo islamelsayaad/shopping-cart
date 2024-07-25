@@ -1,8 +1,8 @@
 import useCart from "../hooks/useCart";
-import currencyFormatter from "../utilities/currencyFormatter";
-import setImgURL from "../utilities/setImgURL";
-import { ProductItem } from "../ts/types";
+import { currencyFormatter } from "../utilities/currencyFormatter";
+import { ProductItem } from "../lib/types";
 import { memo } from "react";
+import { iconSizeChange } from "../utilities/iconSizeChange";
 
 interface CartItemProps extends ProductItem {
   quantity?: number;
@@ -17,35 +17,55 @@ function CartItem({ ...item }: CartItemProps) {
       payload: { id: item.id },
     });
   };
+  const handleIncreaseItem = () => {
+    dispatch({
+      type: "INC_ITEM",
+      payload: { id: item.id },
+    });
+  };
+  const handleDecreaseItem = () => {
+    dispatch({
+      type: "DEC_ITEM",
+      payload: { id: item.id },
+    });
+  };
 
   return (
-    <div className="grid items-center w-full grid-cols-2 gap-10 py-6 overflow-hidden text-sm justify-items-center sm:text-base">
-      <div className="flex items-center gap-6 justify-self-start">
+    <div className="flex items-center justify-between w-full py-5 overflow-hidden">
+      <div className="flex items-center gap-6">
         <img
           className="object-contain w-20 h-20 border"
-          src={setImgURL(item.id)}
+          src={`/imgs/${item.id}.jpg`}
           alt="item.name"
+          loading="lazy"
         />
-        <h5 className="capitalize">{item.name}</h5>
+        <span className="hidden w-full capitalize sm:inline-block max-w-24 md:max-w-64">
+          {item.name}
+        </span>
       </div>
-      <div className="flex items-center justify-between w-full">
-        <div>{item.quantity}</div>
-        <div>{currencyFormatter(item.price * (item.quantity ?? 1))}</div>
-        <button onClick={handleRemoveItem} className="justify-self-end">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="28px"
-            viewBox="0 -960 960 960"
-            width="28px"
-            fill="red"
-          >
-            <path d="M267.33-120q-27.5 0-47.08-19.58-19.58-19.59-19.58-47.09V-740H160v-66.67h192V-840h256v33.33h192V-740h-40.67v553.33q0 27-19.83 46.84Q719.67-120 692.67-120H267.33Zm425.34-620H267.33v553.33h425.34V-740Zm-328 469.33h66.66v-386h-66.66v386Zm164 0h66.66v-386h-66.66v386ZM267.33-740v553.33V-740Z" />
-          </svg>
+      <div className="flex items-center justify-center gap-6">
+        <button className="text-xl" onClick={handleDecreaseItem}>
+          -
+        </button>
+        {item.quantity}
+        <button className="text-xl" onClick={handleIncreaseItem}>
+          +
         </button>
       </div>
+      <div>{currencyFormatter(item.price * (item.quantity ?? 1))}</div>
+      <button onClick={handleRemoveItem}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height={iconSizeChange(22, 28)}
+          viewBox="0 -960 960 960"
+          width={iconSizeChange(22, 28)}
+          fill="#000000"
+        >
+          <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+        </svg>
+      </button>
     </div>
   );
 }
 
-const MemoCartItem = memo(CartItem);
-export default MemoCartItem;
+export default memo(CartItem);

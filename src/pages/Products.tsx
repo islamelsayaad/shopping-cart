@@ -4,7 +4,7 @@ import { memo } from "react";
 
 function Products() {
   return (
-    <div className="grid w-full gap-6 text-sm justify-items-center c_products_layout my-14 sm:text-base">
+    <div className="grid w-full grid-cols-2 gap-3 text-sm sm:gap-6 c_products_container my-14 sm:text-base">
       {products.map((item: { id: number; name: string; price: number }) => (
         <ProductItem key={item.id} {...item} />
       ))}
@@ -12,5 +12,4 @@ function Products() {
   );
 }
 
-const MemoProducts = memo(Products);
-export default MemoProducts;
+export default memo(Products);

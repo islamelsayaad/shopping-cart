@@ -28,24 +28,32 @@ export interface RemoveItemAction {
   payload: { id: number };
 }
 
-export interface InitializeCartAction {
-  type: "INITIALIZE_CART";
-  payload: CartItem[];
-}
-
 export interface ClearCartAction {
   type: "CLEAR_ITEMS";
+}
+
+export interface IncreaseItemAction {
+  type: "INC_ITEM";
+  payload: { id: number };
+}
+
+export interface DecreaseItemAction {
+  type: "DEC_ITEM";
+  payload: { id: number };
 }
 
 export type CartAction =
   | AddItemAction
   | RemoveItemAction
-  | InitializeCartAction
-  | ClearCartAction;
+  | ClearCartAction
+  | IncreaseItemAction
+  | DecreaseItemAction;
 
 export interface CartContextType {
   state: CartState;
   dispatch: Dispatch<CartAction>;
   processed: boolean;
   setProcessed: Dispatch<SetStateAction<boolean>>;
+  cartItemsNum: number;
+  totalPrice: number;
 }
