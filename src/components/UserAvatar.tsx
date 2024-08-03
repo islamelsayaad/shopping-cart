@@ -1,4 +1,4 @@
-const UserAvatar = ({ user }: { user: any) => {
+const UserAvatar = ({ user }: { user: any }) => {
   return user?.picture !== undefined ? (
     <div
       className="w-10 h-10 overflow-hidden rounded-full cursor-pointer"
