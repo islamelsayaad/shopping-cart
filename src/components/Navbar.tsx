@@ -9,6 +9,11 @@ function Navbar() {
   const { isAuthenticated, loginWithRedirect, logout, isLoading, error, user } =
     useAuth0();
 
+  const handleLogout = () => {
+    logout({ returnTo: window.location.origin });
+      };
+
+
   const AuthButton = () => {
     if (error) throw new Error("Authentication error");
     else if (!error && isLoading) return null;
@@ -16,7 +21,7 @@ function Navbar() {
       if (!isAuthenticated) {
         return (
           <button
-            onClick={() => loginWithRedirect()}
+            onClick={loginWithRedirect}
             className="underline sm:text-lg"
           >
             Log in
@@ -26,7 +31,7 @@ function Navbar() {
         return (
           <>
             <button
-              onClick={() => logout()}
+              onClick={handleLogout}
               className="underline sm:text-lg"
             >
               Log out
