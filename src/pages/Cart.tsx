@@ -28,8 +28,8 @@ function Cart() {
         <h3 className="mb-10 text-2xl font-medium sm:text-4xl">Your Cart</h3>
       </div>
       {cartItemsNum === 0 ? (
-        <div className="w-fit h-full mt-24 text-2xl mb-36">
-           🌵
+        <div className="w-fit h-full mt-24 text-lg mb-36">
+           Oppps 😮
         </div>
       ) : (
         <div className="flex flex-col w-full h-full divide-y mb-14">
