@@ -30,7 +30,8 @@ function Navbar() {
           >
             Log out
           </button>
-          <UserAvatar user={user}/>;
+          <UserAvatar user={user}/>
+        );
       }
     }
   };
