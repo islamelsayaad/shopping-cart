@@ -22,7 +22,16 @@ function Navbar() {
             Log in
           </button>
         );
-      } else return <UserAvatar user={user} logout={logout} />;
+      } else {
+        return (
+          <button
+            onClick={() => logout()}
+            className="underline sm:text-lg"
+          >
+            Log out
+          </button>
+          <UserAvatar user={user}/>;
+      }
     }
   };
 
