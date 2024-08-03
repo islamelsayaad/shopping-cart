@@ -24,13 +24,15 @@ function Navbar() {
         );
       } else {
         return (
-          <button
-            onClick={() => logout()}
-            className="underline sm:text-lg"
-          >
-            Log out
-          </button>
-          <UserAvatar user={user}/>
+          <>
+            <button
+              onClick={() => logout()}
+              className="underline sm:text-lg"
+            >
+              Log out
+            </button>
+            <UserAvatar user={user}/>
+          </>
         );
       }
     }
