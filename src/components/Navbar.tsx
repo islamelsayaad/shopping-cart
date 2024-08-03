@@ -21,7 +21,7 @@ function Navbar() {
       if (!isAuthenticated) {
         return (
           <button
-            onClick={loginWithRedirect}
+            onClick={() => loginWithRedirect()}
             className="underline sm:text-lg"
           >
             Log in
@@ -31,7 +31,7 @@ function Navbar() {
         return (
           <>
             <button
-              onClick={handleLogout}
+              onClick={() => handleLogout()}
               className="underline sm:text-lg"
             >
               Log out
